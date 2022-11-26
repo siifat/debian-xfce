@@ -20,6 +20,19 @@ echo "
 Installing Desktop Environment as you wanted....
 
 "
-sudo apt-get install xfce4 cabextract catfish dconf-cli dconf-editor deborphan ethtool extlinux \
-extundelete gdebi gparted hardinfo htop hwinfo info initscripts mugshot synaptic vlc \
-intel-microcode lightdm-gtk-greeter seahorse -qq -y
+sudo apt-get install xfce4 gdebi hardinfo htop mugshot synaptic \
+vlc intel-microcode lightdm-gtk-greeter seahorse neofetch xfce4-terminal -qq -y
+
+sudo apt purge --autoremove xterm -y
+
+echo "
+
+
+Do you want to configure lightdm for auto login now?"
+select yn in "Yes, I want to." "I will do it later"; do
+case $yn in
+Yes, I want to. ) sudo nano /etc/lightdm/lightdm.conf; break;;
+I will do it later ) echo "okay!"
+exit;;
+esac
+done
