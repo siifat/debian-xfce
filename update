@@ -1,0 +1,25 @@
+#! /bin/bash
+
+echo "Ranking your mirrors. Please Wait.....
+
+
+"
+sudo apt-get install netselect-apt -qq -y
+sudo netselect-apt testing --nonfree -o /etc/apt/sources.list
+
+
+echo "
+
+Updating your system.....
+
+"
+sudo apt-get update && sudo apt-get upgrade -qq -y
+
+
+echo "
+Installing Desktop Environment as you wanted....
+
+"
+sudo apt-get install xfce4 cabextract catfish dconf-cli dconf-editor deborphan ethtool extlinux \
+extundelete gdebi gparted hardinfo htop hwinfo info initscripts mugshot synaptic vlc \
+intel-microcode lightdm-gtk-greeter seahorse -qq -y
